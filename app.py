@@ -9,6 +9,7 @@ from services.analyzer import analyze_film
 from services.nyc_data import find_nyc_communities
 from services.storyteller import generate_discovery_story
 from services.marketing import generate_marketing_strategies
+from services.marketing_video import generate_marketing_video
 
 # Set Streamlit Page Config for Theme
 st.set_page_config(
@@ -166,6 +167,19 @@ with right_col:
                                     ).configure_view(strokeWidth=0)
                                     
                                     st.altair_chart(donut, use_container_width=True)
+
+                        # Sequence 5: Final AI Marketing Video
+                        st.divider()
+                        st.header("🎬 Final AI Marketing Pitch", divider="rainbow")
+                        with st.spinner('🎞️ Rendering AI Cinema Studio Short...'):
+                            try:
+                                video_path = generate_marketing_video(title, dna, orgs)
+                                if os.path.exists(video_path):
+                                    st.video(video_path)
+                                    st.caption("📽️ AI-Generated Marketing Ad (Gemini + Imagen 3 + FFmpeg)")
+                            except Exception as e:
+                                st.error(f"Could not generate marketing video: {e}")
+
                 else:
                     st.error("Failed to generate Audience DNA.")
 

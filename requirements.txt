@@ -4,3 +4,4 @@ pillow==10.2.0
 streamlit==1.42.0
 gTTS==2.5.4
 fpdf2==2.8.4
+google-cloud-aiplatform
