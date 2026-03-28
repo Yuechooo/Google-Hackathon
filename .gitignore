@@ -1,0 +1,13 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+.env
+.DS_Store
+.streamlit/secrets.toml
+assets/community_scene.png
+tmp/
+*.jpg
+*.jpeg
+*.png
+!assets/
